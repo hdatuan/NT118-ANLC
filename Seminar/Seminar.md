@@ -77,7 +77,7 @@
 - Kết nối và chạy ứng dụng trên thiết bị thật.
     
 
-## 1.5. Creating and Running a Basic Android App
+## 1.5. Creating and Running a Basic Android App (Demo)
 
 - Tạo một Android project mới.
     
@@ -96,7 +96,7 @@
 - Kiểm tra log và xử lý lỗi cơ bản.
     
 
-## 1.6. So sánh hai môi trường phát triển
+## 1.6. So sánh hai môi trường phát triển (Optional)
 
 ### Android Studio và IntelliJ IDEA
 
@@ -238,110 +238,36 @@ Từ đó đánh giá:
 
 ---
 
-# CHƯƠNG 3. GITHUB COPILOT TRONG ANDROID STUDIO
+# CHƯƠNG 3. GEMINI TRONG ANDROID STUDIO
 
-## 3.1. Tổng quan về GitHub Copilot
+## 3.1. Tổng quan về Gemini trong Android Studio
 
-- GitHub Copilot là gì.
-    
-- Khái niệm AI Coding Assistant.
-    
-- Vai trò của AI trong quá trình phát triển phần mềm.
-    
-- Tích hợp GitHub Copilot vào Android Studio.
-    
+- Gemini (trước đây là Studio Bot) - AI Coding Assistant tích hợp sẵn.
+- Khái niệm và vai trò của AI trợ lý trong phát triển phần mềm.
+- Cách thiết lập, đăng nhập và kích hoạt Gemini trong Android Studio.
 
-## 3.2. Các tính năng chính của GitHub Copilot
+## 3.2. Các tính năng chính của Gemini
 
-- Code Completion.
-    
-- Copilot Chat.
-    
-- Sinh code từ yêu cầu.
-    
-- Giải thích code.
-    
-- Refactoring.
-    
-- Hỗ trợ debugging.
-    
-- Sinh Unit Test.
-    
-- Sinh documentation.
-    
-- Agent Mode.
-    
+- **Gemini Chat:** Hỏi đáp, tư vấn thiết kế và kiến trúc ngay trong IDE.
+- **Code Completion:** Gợi ý và tự động điền code thông minh ngữ cảnh.
+- **Explain Code:** Giải thích các đoạn code phức tạp và Android API.
+- **Smart Debugging:** Phân tích lỗi trực tiếp từ Logcat và đề xuất cách sửa.
+- **Generate Code:** Sinh code (UI, Unit Test, Logic) từ mô tả ngôn ngữ tự nhiên.
+- **Add Documentation:** Tự động sinh tài liệu cho các hàm và class.
 
-## 3.3. Context và Prompt trong Copilot
+## 3.3. Ứng dụng Gemini thực tế trong Android Development
 
-- Context là gì.
-    
-- Context từ source code và project.
-    
-- Cách viết prompt hiệu quả.
-    
-- Cung cấp yêu cầu và ràng buộc cho Copilot.
-    
-- Custom Instructions.
-    
+- Sinh và tối ưu hóa mã Kotlin.
+- Xây dựng nhanh giao diện với Jetpack Compose và XML.
+- Hỗ trợ triển khai kiến trúc (MVVM, Clean Architecture) và các thành phần (Activity, ViewModel).
+- Xử lý bất đồng bộ (Coroutines, Flow).
+- Hỗ trợ phân tích lỗi crash ứng dụng.
 
-## 3.4. Ứng dụng Copilot trong Android Development
+## 3.4. Lợi ích, hạn chế và kỹ năng sử dụng hiệu quả
 
-- Sinh Kotlin code.
-    
-- Sinh giao diện Jetpack Compose.
-    
-- Sinh Activity/ViewModel.
-    
-- Viết Coroutines và Flow.
-    
-- Sinh Repository và Data Layer.
-    
-- Hỗ trợ xử lý lỗi.
-    
-- Hỗ trợ viết Unit Test.
-    
-- Giải thích Android API và source code.
-    
+- **Lợi ích:** Tăng tốc độ code, giảm tác vụ lặp lại, hỗ trợ học công nghệ/API mới nhanh chóng.
+- **Hạn chế:** Code sinh ra có thể chưa tối ưu hoặc dùng API cũ (hallucination); nguy cơ tiềm ẩn về bảo mật nếu chia sẻ dữ liệu nhạy cảm.
+- **Kỹ năng Prompting:** Tầm quan trọng của việc cung cấp đúng Context (bối cảnh) và viết Prompt rõ ràng, chi tiết.
+- **Nguyên tắc:** Lập trình viên luôn đóng vai trò quyết định, cần review và kiểm thử kỹ code do AI sinh ra.
 
-## 3.5. Lợi ích và hạn chế của GitHub Copilot
-
-### Lợi ích
-
-- Tăng tốc quá trình lập trình.
-    
-- Giảm boilerplate code.
-    
-- Hỗ trợ học công nghệ mới.
-    
-- Hỗ trợ debugging, testing và documentation.
-    
-
-### Hạn chế
-
-- Có khả năng sinh code không chính xác.
-    
-- Có thể sử dụng API sai hoặc lỗi thời.
-    
-- Có thể phát sinh vấn đề bảo mật.
-    
-- Phụ thuộc vào chất lượng context và prompt.
-    
-- Developer vẫn cần kiểm tra và hiểu code.
-    
-
-## 3.6. Quy trình sử dụng Copilot hiệu quả trong Android Studio
-
-- Phân tích yêu cầu.
-    
-- Cung cấp context cho Copilot.
-    
-- Sinh hoặc chỉnh sửa code.
-    
-- Developer review.
-    
-- Build và Debug.
-    
-- Testing.
-    
-- Refactoring và hoàn thiện ứng dụng.
+## 3.5. Thêm Demo prompt cho Gemini viết code (Optional - Demo)
