@@ -96,26 +96,9 @@
 - Kiểm tra log và xử lý lỗi cơ bản.
     
 
-## 1.6. So sánh hai môi trường phát triển (Optional)
-
-### Android Studio và IntelliJ IDEA
-
-- Mục đích sử dụng.
-    
-- Khả năng hỗ trợ Android.
-    
-- Android SDK và Emulator.
-    
-- Công cụ thiết kế giao diện.
-    
-- Build và Debug.
-    
-- Plugin và khả năng mở rộng.
-    
-- Ưu, nhược điểm và trường hợp sử dụng.
-    
 
 ---
+
 
 # CHƯƠNG 2. NGÔN NGỮ KOTLIN TRONG ANDROID DEVELOPMENT
 

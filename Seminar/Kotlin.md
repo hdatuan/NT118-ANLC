@@ -175,79 +175,86 @@ sealed class Result<out T> {
 
 ---
 
-## 2.4. Các đặc trưng nổi bật của Kotlin
+## 2.4. Các đặc trưng nổi bật của Kotlin *(Giới thiệu)*
+
+> Đây là những tính năng nâng cao làm cho Kotlin mạnh hơn Java. Phần này chỉ giới thiệu để hiểu Kotlin có gì đặc biệt — không cần thành thạo ngay.
 
 ### Null Safety
 
-Kotlin phân biệt rõ kiểu có thể `null` và không thể `null` ngay ở compile time:
+**Vấn đề:** Trong Java, gọi phương thức trên một biến `null` gây ra `NullPointerException` — lỗi runtime cực kỳ phổ biến.
+
+**Kotlin giải quyết:** Hệ thống kiểu phân biệt rõ "có thể null" (`String?`) và "không thể null" (`String`) ngay lúc compile. Lỗi null được bắt sớm hơn, trước khi chạy.
 
 ```kotlin
-var nonNull: String = "Hello"
-// nonNull = null  // ❌ Lỗi compile
+var name: String = "Android"   // Không thể null
+var nickname: String? = null   // Có thể null ✅
 
-var nullable: String? = "Hello"
-nullable = null  // ✅ OK
-
-// Safe call operator
-val length = nullable?.length  // Trả về null nếu nullable là null
-
-// Elvis operator
-val len = nullable?.length ?: 0  // Trả về 0 nếu null
-
-// Non-null assertion (dùng cẩn thận!)
-val len2 = nullable!!.length  // Ném NullPointerException nếu null
+val len = nickname?.length ?: 0  // An toàn: trả về 0 nếu null
 ```
+
+---
 
 ### Extension Function
 
-Thêm hàm mới vào class có sẵn mà không cần kế thừa:
+**Khái niệm:** Thêm hàm mới vào một class có sẵn mà **không cần kế thừa hay sửa class gốc**.
+
+**Lợi ích:** Giúp code ngắn gọn, dễ đọc hơn. Rất phổ biến trong các thư viện Android (Jetpack).
 
 ```kotlin
-fun String.isPalindrome(): Boolean = this == this.reversed()
+// Thêm hàm isPalindrome() vào class String mà không sửa String
+fun String.isPalindrome() = this == this.reversed()
 
-println("racecar".isPalindrome()) // true
+"racecar".isPalindrome() // true
 ```
 
-### Lambda và Higher-order Function
+---
+
+### Lambda & Higher-order Function
+
+**Khái niệm:** Hàm có thể được truyền như một tham số hoặc trả về từ hàm khác. Lambda là cú pháp viết hàm ngắn gọn.
+
+**Lợi ích:** Giúp xử lý danh sách, sự kiện, callback một cách súc tích.
 
 ```kotlin
 val numbers = listOf(1, 2, 3, 4, 5)
-
 val evens = numbers.filter { it % 2 == 0 }  // [2, 4]
 val doubled = numbers.map { it * 2 }         // [2, 4, 6, 8, 10]
-val sum = numbers.reduce { acc, n -> acc + n } // 15
 ```
 
-### Scope Functions
+---
 
-Cho phép thực thi một block code trong ngữ cảnh của một object:
+### Scope Functions (`let`, `apply`, `run`,...)
 
-| Function | Context Object | Return Value | Dùng khi |
-|----------|---------------|-------------|---------|
-| `let` | `it` | Kết quả lambda | Null check, chuyển đổi |
-| `run` | `this` | Kết quả lambda | Tính toán, khởi tạo |
-| `with` | `this` | Kết quả lambda | Gọi nhiều hàm trên object |
-| `apply` | `this` | Object | Cấu hình object |
-| `also` | `it` | Object | Side effects |
+**Khái niệm:** Các hàm cho phép thực thi một block code "trong ngữ cảnh" của một object, giúp tránh lặp tên biến nhiều lần.
+
+**Hay dùng nhất:** `apply` để cấu hình object, `let` để kiểm tra null an toàn.
 
 ```kotlin
+// Thay vì: user.name = "An"; user.email = "an@..."
 val user = User().apply {
     name = "An"
     email = "an@example.com"
 }
 ```
 
-### Coroutines và Xử lý bất đồng bộ
+---
+
+### Coroutines *(Chỉ biết khái niệm)*
+
+**Vấn đề:** Các tác vụ mạng, đọc/ghi database tốn thời gian — nếu chạy trên Main Thread sẽ làm ứng dụng bị đơ (ANR).
+
+**Kotlin Coroutines:** Cơ chế xử lý bất đồng bộ nhẹ, cho phép viết code async **trông giống như code đồng bộ** — dễ đọc hơn callback và RxJava rất nhiều. Đây là nền tảng của hầu hết các tác vụ async trong Android hiện đại.
 
 ```kotlin
-// Thay vì callback hell, Kotlin Coroutines cho phép viết code bất đồng bộ theo phong cách tuần tự
+// Code chạy bất đồng bộ nhưng trông như tuần tự
 viewModelScope.launch {
-    val data = repository.fetchData()  // Suspend function – không block main thread
+    val data = repository.fetchData()   // Không block UI thread
     _uiState.value = UiState.Success(data)
 }
 ```
 
 ---
+
 
 ## 2.5. Java vs Kotlin trong Android Development
 
